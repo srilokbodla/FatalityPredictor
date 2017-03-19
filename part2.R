@@ -1,8 +1,11 @@
+# setting workspace
 setwd("P:/Titanic")
 library(readr)
+#local file path
 train <- read_csv("P:/Titanic/train.csv")
 View(train)
 library(readr)
+#local file path
 test <- read_csv("P:/Titanic/test.csv")
 summary(train$Sex)
 prop.table(table(train$Sex, train$Survived))
@@ -41,4 +44,4 @@ test$Survived[test$Sex == 'female' & test$Pclass == 3 & test$Fare >= 20] <- 0
 
 # Create submission dataframe and output to file
 submit <- data.frame(PassengerId = test$PassengerId, Survived = test$Survived)
-write.csv(submit, file = "genderclassmodel.csv", row.names = FALSE)
+write.csv(submit, file = "genderbasedOutput.csv", row.names = FALSE)
